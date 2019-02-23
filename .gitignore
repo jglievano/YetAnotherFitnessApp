@@ -1,0 +1,3 @@
+bazel-*
+tulsi-workspace
+*.tulsiconf-user

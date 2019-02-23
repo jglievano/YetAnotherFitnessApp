@@ -1,0 +1,12 @@
+{
+  "configDefaults" : {
+    "optionSet" : {
+
+    }
+  },
+  "packages" : [
+    "ios-app"
+  ],
+  "projectName" : "YetAnotherFitnessApp",
+  "workspaceRoot" : "../.."
+}
