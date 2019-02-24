@@ -1,10 +1,28 @@
 load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
 
+swift_library(
+    name = "Alamofire",
+    module_name = "Alamofire",
+    srcs = glob(["Alamofire/Source/**/*.swift"]),
+)
+
 objc_library(
     name = "IGListKit",
     srcs = glob(["IGListKit/Source/**/*.{m,mm}"]),
     hdrs = glob(["IGListKit/Source/**/*.h"]),
     visibility = ["//visibility:public"],
+)
+
+swift_library(
+    name = "ObjectMapper",
+    module_name = "ObjectMapper",
+    srcs = glob(["ObjectMapper/Sources/**/*.swift"]),
+)
+
+swift_library(
+    name = "RealmSwift",
+    module_name = "RealmSwift",
+    srcs = glob(["realm-swift/RealmSwift/*.swift"]),
 )
 
 objc_library(
