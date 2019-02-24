@@ -27,7 +27,7 @@ objc_library(
 swift_library(
     name = "ObjectMapper",
     module_name = "ObjectMapper",
-    srcs = glob(["ObjectMapper/Sources/**/*.swift"]),
+    srcs = glob(["ObjectMapper/Sources/*.swift"])
 )
 
 swift_library(
