@@ -8,6 +8,8 @@ swift_library(
     srcs = glob(["Classes/**/*.swift"]),
     deps = [
         "//ios-app/ThirdParty:IGListKit",
+        "//ios-app/ThirdParty:RxCocoa",
+        "//ios-app/ThirdParty:RxSwift",
     ],
 )
 

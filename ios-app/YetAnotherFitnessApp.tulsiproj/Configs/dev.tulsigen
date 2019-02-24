@@ -48,6 +48,7 @@
   "sourceFilters" : [
     "ios-app",
     "ios-app/Classes",
-    "ios-app/Resources"
+    "ios-app/Resources",
+    "ios-app/ThirdParty"
   ]
 }
