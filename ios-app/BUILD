@@ -6,6 +6,9 @@ BUNDLE_ID = "com.newpixeltheory.YetAnotherFitnessApp"
 swift_library(
     name = "YetAnotherFitnessAppClasses",
     srcs = glob(["Classes/**/*.swift"]),
+    deps = [
+        "//ios-app/ThirdParty:IGListKit",
+    ],
 )
 
 ios_application(
@@ -14,6 +17,7 @@ ios_application(
     families = ["iphone"],
     minimum_os_version = "11.0",
     infoplists = [":Resources/Info.plist"],
+    launch_storyboard = ":Resources/LaunchScreen.storyboard",
     visibility = ["//visibility:public"],
     deps = [
         ":YetAnotherFitnessAppClasses",
