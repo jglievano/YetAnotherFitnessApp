@@ -6,8 +6,19 @@ swift_library(
     srcs = glob(["Alamofire/Source/**/*.swift"]),
 )
 
+swift_library(
+    name = "AlamofireObjectMapper",
+    module_name = "AlamofireObjectMapper",
+    srcs = glob(["AlamofireObjectMapper/AlamofireObjectMapper/**/*.swift"]),
+    deps = [
+        ":Alamofire",
+        ":ObjectMapper",
+    ],
+)
+
 objc_library(
     name = "IGListKit",
+    module_name = "IGListKit",
     srcs = glob(["IGListKit/Source/**/*.{m,mm}"]),
     hdrs = glob(["IGListKit/Source/**/*.h"]),
     visibility = ["//visibility:public"],
