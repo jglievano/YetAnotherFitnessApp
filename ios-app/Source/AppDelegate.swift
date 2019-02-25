@@ -6,7 +6,9 @@ class AppDelegate: UIResponder {
   var window: UIWindow?
   
   func afterLaunchSetup() {
-    
+    window = UIWindow(frame: UIScreen.main.bounds)
+    window?.rootViewController = ViewController()
+    window?.makeKeyAndVisible()
   }
 }
 
