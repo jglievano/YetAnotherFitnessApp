@@ -1,6 +1,12 @@
 # Getting started
 
 - Download and install **[Java SE]**
+
+    - Using **Homebrew**:
+
+            brew tap caskroom/cask
+            brew cask install java
+
 - Install **Bazel**:
 
         brew install bazel
