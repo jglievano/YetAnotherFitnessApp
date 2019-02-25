@@ -7,9 +7,9 @@ swift_library(
     name = "YetAnotherFitnessAppSource",
     srcs = glob(["Source/**/*.swift"]),
     deps = [
-        "//ios-app/ThirdParty:IGListKit",
-        "//ios-app/ThirdParty:RxCocoa",
-        "//ios-app/ThirdParty:RxSwift",
+        "//ios-app/third-party:IGListKit",
+        "//ios-app/third-party:RxCocoa",
+        "//ios-app/third-party:RxSwift",
     ],
 )
 
