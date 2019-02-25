@@ -3,7 +3,7 @@
     "ios-app/BUILD"
   ],
   "buildTargets" : [
-    "//ios-app:YetAnotherFitnessAppClasses",
+    "//ios-app:YetAnotherFitnessAppSource",
     "//ios-app:ios-app"
   ],
   "optionSet" : {
@@ -47,8 +47,29 @@
   "projectName" : "YetAnotherFitnessApp",
   "sourceFilters" : [
     "ios-app",
-    "ios-app/Classes",
     "ios-app/Resources",
-    "ios-app/ThirdParty"
+    "ios-app/Source",
+    "ios-app/ThirdParty",
+    "ios-app/ThirdParty/IGListKit",
+    "ios-app/ThirdParty/IGListKit/Source",
+    "ios-app/ThirdParty/IGListKit/Source/Common",
+    "ios-app/ThirdParty/IGListKit/Source/Common/Internal",
+    "ios-app/ThirdParty/IGListKit/Source/Internal",
+    "ios-app/ThirdParty/RxSwift",
+    "ios-app/ThirdParty/RxSwift/Platform",
+    "ios-app/ThirdParty/RxSwift/Platform/DataStructures",
+    "ios-app/ThirdParty/RxSwift/RxAtomic",
+    "ios-app/ThirdParty/RxSwift/RxAtomic/include",
+    "ios-app/ThirdParty/RxSwift/RxSwift",
+    "ios-app/ThirdParty/RxSwift/RxSwift/Concurrency",
+    "ios-app/ThirdParty/RxSwift/RxSwift/Disposables",
+    "ios-app/ThirdParty/RxSwift/RxSwift/Extensions",
+    "ios-app/ThirdParty/RxSwift/RxSwift/Observables",
+    "ios-app/ThirdParty/RxSwift/RxSwift/Observers",
+    "ios-app/ThirdParty/RxSwift/RxSwift/Schedulers",
+    "ios-app/ThirdParty/RxSwift/RxSwift/Schedulers/Internal",
+    "ios-app/ThirdParty/RxSwift/RxSwift/Subjects",
+    "ios-app/ThirdParty/RxSwift/RxSwift/SwiftSupport",
+    "ios-app/ThirdParty/RxSwift/RxSwift/Traits"
   ]
 }
