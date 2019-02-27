@@ -49,6 +49,7 @@
     "ios-app/Resources",
     "ios-app/Source",
     "ios-app/Source/Modules",
-    "ios-app/Source/Modules/Home"
+    "ios-app/Source/Modules/Home",
+    "ios-app/Source/Modules/Home/Impl"
   ]
 }

@@ -1,4 +1,4 @@
-protocol HomePresenterProtocol {}
+import HomeBase
 
 final class HomePresenter: HomePresenterProtocol {
   var interactor: HomeInteractorProtocol!

@@ -1,3 +1,5 @@
+import HomeBase
+
 public class HomeBuilder {
   public static func build() -> HomeViewController {
     let viewController = HomeViewController()
