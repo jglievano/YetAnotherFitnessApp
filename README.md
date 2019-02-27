@@ -31,10 +31,6 @@
 
     bazel test //ios-app/Tests:all --apple_platform_type macos
 
-### On **Linux**
-
-    bazel test //ios-app/Tests:all
-    
 ## Running UI tests
 
 ***TODO***
