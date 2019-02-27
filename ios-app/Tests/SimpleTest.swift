@@ -10,8 +10,4 @@ final class SimpleTest: XCTestCase {
   func testThatWillSucceed() {
     XCTAssertEqual(value, 4)
   }
-
-  static var allTests = [
-    ("testThatWillSucceed", testThatWillSucceed),
-  ]
 }

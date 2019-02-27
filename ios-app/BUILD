@@ -1,17 +1,6 @@
 load("@build_bazel_rules_apple//apple:ios.bzl", "ios_application")
-load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
 
 BUNDLE_ID = "com.newpixeltheory.YetAnotherFitnessApp"
-
-swift_library(
-    name = "YetAnotherFitnessAppSource",
-    srcs = glob(["Source/**/*.swift"]),
-    deps = [
-        "//ios-app/third-party:IGListKit",
-        "//ios-app/third-party:RxCocoa",
-        "//ios-app/third-party:RxSwift",
-    ],
-)
 
 ios_application(
     name = "ios-app",
@@ -22,7 +11,7 @@ ios_application(
     launch_storyboard = ":Resources/LaunchScreen.storyboard",
     visibility = ["//visibility:public"],
     deps = [
-        ":YetAnotherFitnessAppSource",
+        "//ios-app/Source:App",
     ],
 )
 

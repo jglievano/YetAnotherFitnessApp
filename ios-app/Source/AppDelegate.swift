@@ -1,10 +1,9 @@
-import RxSwift
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder {
   var window: UIWindow?
-  
+
   func afterLaunchSetup() {
     window = UIWindow(frame: UIScreen.main.bounds)
     window?.rootViewController = ViewController()
