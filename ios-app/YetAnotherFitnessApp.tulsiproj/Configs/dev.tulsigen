@@ -49,12 +49,6 @@
     "ios-app/Resources",
     "ios-app/Source",
     "ios-app/Source/Modules",
-    "ios-app/Source/Modules/Home",
-    "ios-app/third-party",
-    "ios-app/third-party/IGListKit",
-    "ios-app/third-party/IGListKit/Source",
-    "ios-app/third-party/IGListKit/Source/Common",
-    "ios-app/third-party/IGListKit/Source/Common/Internal",
-    "ios-app/third-party/IGListKit/Source/Internal"
+    "ios-app/Source/Modules/Home"
   ]
 }

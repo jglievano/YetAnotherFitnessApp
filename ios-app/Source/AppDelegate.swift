@@ -1,12 +1,14 @@
 import UIKit
 
+import Home
+
 @UIApplicationMain
 class AppDelegate: UIResponder {
   var window: UIWindow?
 
   func afterLaunchSetup() {
     window = UIWindow(frame: UIScreen.main.bounds)
-    window?.rootViewController = ViewController()
+    window?.rootViewController = HomeBuilder.build()
     window?.makeKeyAndVisible()
   }
 }
