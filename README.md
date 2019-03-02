@@ -25,6 +25,43 @@
 
     bazel build //ios-app
 
+## Creating a new module sandbox app
+
+- `Source/Modules/<module name>/<module name>Sandbox.swift`:
+
+        import UIKit
+        import Home
+        import SandboxInterface
+
+        public class SandboxProvider: SandboxProviderProtocol {
+          public static var viewController: UIViewController {
+            return HomeBuilder.build()
+          }
+        }
+
+- `Source/Modules/<module name>/BUILD`:
+        swift_library(
+            name = "Sandbox",
+            module_name = "Sandbox",
+            srcs = ["<module name>Sandbox.swift"],
+            deps = [
+                ":<module implementation dep>",
+                "//ios-app/Source/Sandbox:SandboxInterface"
+            ],
+            visibility = ["//visibility:public"],
+        )
+
+- `Source/Sandbox/BUILD`:
+
+        config_setting(
+            name = "<module name>",
+            values = {"define": "sandbox=<module name>"},
+        )
+
+- `Source/Sandbox/BUILD` in `Sandbox`'s `deps` attribute:
+
+        ":<module name>": ["//ios-app/Source/Modules/<module name>:Sandbox"],
+
 ## Running tests
 
 ### On **macOS**
