@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import "UIScrollView+../IGListKit.h"
+#import "UIScrollView+IGListKit.h"
 
 @implementation UIScrollView (IGListKit)
 

@@ -1,13 +1,13 @@
 import IGListKit
 
-final class HomeSectionController:
-    ListBindableSectionController<HomeSectionModel>,
-    ListBindingSectionControllerDataSource {
-  init() {
+final class HomeSectionController: ListSectionController {
+  override init() {
     super.init()
-    dataSource = self
+    // dataSource = self
   }
+}
 
+extension HomeSectionController: ListBindingSectionControllerDataSource {
   func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>,
                          viewModelsFor object: Any) -> [ListDiffable] {
     guard let model = object as? HomeSectionModel else { return [] }
@@ -17,9 +17,16 @@ final class HomeSectionController:
   func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>,
                          cellForViewModel viewModel: Any,
                          at index: Int) -> UICollectionViewCell & ListBindable {
+    guard let context = collectionContext else { fatalError("Unexpected nil collectionContext") }
     switch viewModel {
     case is HomeSectionModel:
-      return dequeueClassCell(HomeCollectionViewCell.self, for: index)
+      guard let cell = context.dequeueReusableCell(of: HomeCollectionViewCell.self,
+                                                   for: sectionController,
+                                                   at: index) as? HomeCollectionViewCell
+      else {
+        fatalError("Could not dequeue cell for \(viewModel)")
+      }
+      return cell
     default:
       fatalError("Unexpected model type in HomeSectionController: \(viewModel)")
     }

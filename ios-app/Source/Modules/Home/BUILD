@@ -4,13 +4,14 @@ swift_library(
     name = "HomeBase",
     module_name = "HomeBase",
     srcs = [
+        "HomeCollectionViewCell.swift",
         "HomeInterface.swift",
         "HomeSectionController.swift",
         "HomeSectionModel.swift",
         "HomeViewController.swift",
     ],
     deps = [
-        "//ios-app/third-party:IGListKit",
+        "//ios-app/third-party/IGListKit",
     ],
 )
 

@@ -1,9 +1,31 @@
 require 'fileutils'
 require 'pathname'
 
+def print_usage()
+  puts
+  puts "\e[1mNAME\e[0m"
+  puts "    \e[1mvendor_parser.rb\e[0m -- Parses though vendor dependency files"
+  puts
+  puts "\e[1mSYNOPSIS\e[0m"
+  puts "    \e[1mruby vendor_parser.rb\e[0m \e[4msource_path\e[0m \e[4mdestination_path\e[0m"
+  puts
+  puts "\e[1mDESCRIPTION\e[0m"
+  puts "    This utility parses through each Objective-C source file (h, m, mm extensions)"
+  puts "    and perform operations that may help for improving compatibility with other"
+  puts "    build tools."
+  puts
+  puts "\e[1mEXIT STATUS\e[0m"
+  puts "    0 on success, and >0 if an error occurs."
+  puts
+  puts "\e[1mCOMPATIBILITY\e[0m"
+  puts "    Built with \e[4mRuby v2.5\e[0m, usage using anything under my result in"
+  puts "    unexpected behavior."
+  puts
+end
+
 if ARGV.length != 2
-  puts "Two (2) arguments required."
-  puts "Usage: ruby vendor_parser.rb DepPath CopyPath"
+  puts "\e[31mTwo (2) arguments required.\e[0m"
+  print_usage
   exit
 end
 

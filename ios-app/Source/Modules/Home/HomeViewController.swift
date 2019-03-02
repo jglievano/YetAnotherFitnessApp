@@ -2,7 +2,7 @@ import IGListKit
 import UIKit
 
 public class HomeViewController: UIViewController {
-  var presenter: HomePresenterProtocol!
+  public var presenter: HomePresenterProtocol!
 
   private var collectionView: UICollectionView = {
     let view = UICollectionView(frame: CGRect.zero,
