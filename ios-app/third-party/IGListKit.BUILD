@@ -1,9 +1,9 @@
 objc_library(
     name = "IGListKit_cxx",
-    enable_modules = 0,
     srcs = glob([
         "*.mm",
         "Common/*.mm",
+        "Internal/*.mm",
     ]),
     hdrs = glob([
         "*.h",
@@ -20,7 +20,6 @@ objc_library(
 )
 objc_library(
     name = "IGListKit",
-    enable_modules = 0,
     module_name = "IGListKit",
     srcs = glob([
         "*.m",
@@ -33,7 +32,9 @@ objc_library(
         "*.h",
         "Common/*.h",
     ]),
-    copts = ["-fmodule-name=IGListKit"],
+    copts = [
+        "-fmodule-name=IGListKit",
+    ],
     deps = [":IGListKit_cxx"],
     sdk_frameworks = ["UIKit"],
     sdk_dylibs = ["c++"],

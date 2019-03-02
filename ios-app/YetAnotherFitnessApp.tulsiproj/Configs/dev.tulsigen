@@ -50,6 +50,10 @@
     "ios-app/Source",
     "ios-app/Source/Modules",
     "ios-app/Source/Modules/Home",
-    "ios-app/Source/Modules/Home/Impl"
+    "ios-app/Source/Modules/Home/Impl",
+    "ios-app/third-party/IGListKit",
+    "ios-app/third-party/IGListKit/Common",
+    "ios-app/third-party/IGListKit/Common/Internal",
+    "ios-app/third-party/IGListKit/Internal"
   ]
 }
