@@ -6,13 +6,13 @@
  */
 
 #import "IGListCollectionViewLayout.h"
-#import "IGListCollectionViewLayoutInternal.h"
-#import "UIScrollView+IGListKit.h"
+#import "Internal/IGListCollectionViewLayoutInternal.h"
+#import "Internal/UIScrollView+IGListKit.h"
 
 #import <vector>
 
-#import <IGListKit/IGListAssert.h>
-#import <IGListKit/IGListCollectionViewDelegateLayout.h>
+#import "Common/IGListAssert.h"
+#import "IGListCollectionViewDelegateLayout.h"
 
 static CGFloat UIEdgeInsetsLeadingInsetInDirection(UIEdgeInsets insets, UICollectionViewScrollDirection direction) {
     switch (direction) {

@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <IGListKit/IGListMacros.h>
+#import "../Common/IGListMacros.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -11,10 +11,10 @@
 #import <unordered_set>
 #import <vector>
 
-#import <IGListKit/IGListAssert.h>
-#import <IGListKit/IGListAdapter.h>
-#import <IGListKit/IGListSectionController.h>
-#import <IGListKit/IGListWorkingRangeDelegate.h>
+#import "../Common/IGListAssert.h"
+#import "../IGListAdapter.h"
+#import "../IGListSectionController.h"
+#import "../IGListWorkingRangeDelegate.h"
 
 #import "IGListWorkingRangeDelegate.h"
 

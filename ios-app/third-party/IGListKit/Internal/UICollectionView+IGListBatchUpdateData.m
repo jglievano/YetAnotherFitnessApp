@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import "UICollectionView+IGListBatchUpdateData.h"
+#import "UICollectionView+../Common/IGListBatchUpdateData.h"
 
-#import <IGListKit/IGListBatchUpdateData.h>
+#import "IGListBatchUpdateData.h"
 
 @implementation UICollectionView (IGListBatchUpdateData)
 

@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import "IGListSectionController.h"
+#import "../IGListSectionController.h"
 
 FOUNDATION_EXTERN void IGListSectionControllerPushThread(UIViewController *viewController, id<IGListCollectionContext> collectionContext);
 

@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import <IGListKit/IGListBatchUpdateData.h>
+#import "Common/IGListBatchUpdateData.h"
 
 @class IGListAdapterUpdater;
 @class IGListBatchUpdates;

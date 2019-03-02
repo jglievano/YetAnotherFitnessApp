@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import <IGListKit/IGListMacros.h>
+#import "../Common/IGListMacros.h"
 
 @class IGListAdapter;
 @class IGListSectionController;

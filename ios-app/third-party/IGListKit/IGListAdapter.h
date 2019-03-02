@@ -7,14 +7,14 @@
 
 #import <UIKit/UIKit.h>
 
-#import <IGListKit/IGListAdapterDataSource.h>
-#import <IGListKit/IGListAdapterDelegate.h>
-#import <IGListKit/IGListAdapterMoveDelegate.h>
-#import <IGListKit/IGListCollectionContext.h>
-#import <IGListKit/IGListAdapterUpdateListener.h>
+#import "IGListAdapterDataSource.h"
+#import "IGListAdapterDelegate.h"
+#import "IGListAdapterMoveDelegate.h"
+#import "IGListCollectionContext.h"
+#import "IGListAdapterUpdateListener.h"
 
-#import <IGListKit/IGListExperiments.h>
-#import <IGListKit/IGListMacros.h>
+#import "Common/IGListExperiments.h"
+#import "Common/IGListMacros.h"
 
 @protocol IGListUpdatingDelegate;
 

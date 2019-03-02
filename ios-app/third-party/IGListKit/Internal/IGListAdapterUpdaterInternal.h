@@ -8,9 +8,9 @@
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
 
-#import <IGListKit/IGListMoveIndexPath.h>
+#import "../Common/IGListMoveIndexPath.h"
 
-#import "IGListAdapterUpdater.h"
+#import "../IGListAdapterUpdater.h"
 #import "IGListBatchUpdateState.h"
 #import "IGListBatchUpdates.h"
 

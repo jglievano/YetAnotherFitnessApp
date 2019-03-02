@@ -7,11 +7,11 @@
 
 #import "IGListAdapter+UICollectionView.h"
 
-#import <IGListKit/IGListAdapterInternal.h>
-#import <IGListKit/IGListAssert.h>
-#import <IGListKit/IGListSectionController.h>
-#import <IGListKit/IGListSectionControllerInternal.h>
-#import <IGListKit/UICollectionViewLayout+InteractiveReordering.h>
+#import "IGListAdapterInternal.h"
+#import "../Common/IGListAssert.h"
+#import "../IGListSectionController.h"
+#import "IGListSectionControllerInternal.h"
+#import "UICollectionViewLayout+InteractiveReordering.h"
 
 @implementation IGListAdapter (UICollectionView)
 

@@ -7,9 +7,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import <IGListKit/IGListDiffable.h>
-#import <IGListKit/IGListIndexPathResult.h>
-#import <IGListKit/IGListIndexSetResult.h>
+#import "IGListDiffable.h"
+#import "IGListIndexPathResult.h"
+#import "IGListIndexSetResult.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

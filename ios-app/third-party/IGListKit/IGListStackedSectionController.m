@@ -5,14 +5,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import "IGListStackedSectionControllerInternal.h"
+#import "Internal/IGListStackedSectionControllerInternal.h"
 
 #import <objc/runtime.h>
 
-#import <IGListKit/IGListAssert.h>
-#import <IGListKit/IGListSupplementaryViewSource.h>
+#import "Common/IGListAssert.h"
+#import "IGListSupplementaryViewSource.h"
 
-#import "IGListSectionControllerInternal.h"
+#import "Internal/IGListSectionControllerInternal.h"
 
 @interface UICollectionViewCell (IGListStackedSectionController)
 @end

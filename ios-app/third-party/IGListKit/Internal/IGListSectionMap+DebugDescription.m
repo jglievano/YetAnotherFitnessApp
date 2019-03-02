@@ -6,7 +6,7 @@
  */
 
 #import "IGListSectionMap+DebugDescription.h"
-#import "IGListBindingSectionController.h"
+#import "../IGListBindingSectionController.h"
 
 @implementation IGListSectionMap (DebugDescription)
 

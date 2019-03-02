@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import <IGListKit/IGListCompatibility.h>
+#import "IGListCompatibility.h"
 
 /**
  * Project version number for IGListKit.
@@ -17,14 +17,14 @@ FOUNDATION_EXPORT double IGListKitVersionNumber;
  */
 FOUNDATION_EXPORT const unsigned char IGListKitVersionString[];
 
-#import <IGListKit/IGListAssert.h>
-#import <IGListKit/IGListBatchUpdateData.h>
-#import <IGListKit/IGListDiff.h>
-#import <IGListKit/IGListDiffable.h>
-#import <IGListKit/IGListExperiments.h>
-#import <IGListKit/IGListIndexPathResult.h>
-#import <IGListKit/IGListIndexSetResult.h>
-#import <IGListKit/IGListMoveIndex.h>
-#import <IGListKit/IGListMoveIndexPath.h>
-#import <IGListKit/NSNumber+IGListDiffable.h>
-#import <IGListKit/NSString+IGListDiffable.h>
+#import "IGListAssert.h"
+#import "IGListBatchUpdateData.h"
+#import "IGListDiff.h"
+#import "IGListDiffable.h"
+#import "IGListExperiments.h"
+#import "IGListIndexPathResult.h"
+#import "IGListIndexSetResult.h"
+#import "IGListMoveIndex.h"
+#import "IGListMoveIndexPath.h"
+#import "NSNumber+IGListDiffable.h"
+#import "NSString+IGListDiffable.h"

@@ -6,7 +6,7 @@
  */
 
 #import "IGListIndexPathResult.h"
-#import "IGListIndexPathResultInternal.h"
+#import "Internal/IGListIndexPathResultInternal.h"
 
 @implementation IGListIndexPathResult {
     NSMapTable<id<NSObject>, NSIndexPath *> *_oldIndexPathMap;

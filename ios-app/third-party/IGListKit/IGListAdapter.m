@@ -5,18 +5,18 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import "IGListAdapterInternal.h"
+#import "Internal/IGListAdapterInternal.h"
 
-#import <IGListKit/IGListAssert.h>
-#import <IGListKit/IGListAdapterUpdater.h>
-#import <IGListKit/IGListSupplementaryViewSource.h>
-#import <IGListKit/IGSystemVersion.h>
+#import "Common/IGListAssert.h"
+#import "IGListAdapterUpdater.h"
+#import "IGListSupplementaryViewSource.h"
+#import "Internal/IGSystemVersion.h"
 
-#import "IGListSectionControllerInternal.h"
-#import "IGListDebugger.h"
-#import "IGListArrayUtilsInternal.h"
-#import "UIScrollView+IGListKit.h"
-#import "UICollectionViewLayout+InteractiveReordering.h"
+#import "Internal/IGListSectionControllerInternal.h"
+#import "Internal/IGListDebugger.h"
+#import "Common/Internal/IGListArrayUtilsInternal.h"
+#import "Internal/UIScrollView+IGListKit.h"
+#import "Internal/UICollectionViewLayout+InteractiveReordering.h"
 
 @implementation IGListAdapter {
     NSMapTable<UICollectionReusableView *, IGListSectionController *> *_viewSectionControllerMap;
