@@ -62,6 +62,13 @@
 
         ":<module name>": ["//ios-app/Source/Modules/<module name>:Sandbox"],
 
+- Test it build with:
+
+        bazel build //ios-app/Source/Sandbox:SandboxApp --define=sandbox=<module name>
+
+- Create a new config with `--define sandbox=<module name>` to generate the
+  Xcode project.
+
 ## Running tests
 
 ### On **macOS**
