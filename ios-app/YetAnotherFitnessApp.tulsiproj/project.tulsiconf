@@ -9,7 +9,8 @@
   "packages" : [
     "ios-app",
     "ios-app/Source",
-    "ios-app/Source/Modules/Home"
+    "ios-app/Source/Modules/Home",
+    "ios-app/Source/Sandbox"
   ],
   "projectName" : "YetAnotherFitnessApp",
   "workspaceRoot" : "../.."

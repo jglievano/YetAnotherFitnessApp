@@ -1,6 +1,16 @@
 load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
 
 swift_library(
+    name = "Home",
+    module_name = "Home",
+    srcs = glob(["Impl/*.swift"]),
+    visibility = ["//visibility:public"],
+    deps = [
+        ":HomeBase",
+    ],
+)
+
+swift_library(
     name = "HomeBase",
     module_name = "HomeBase",
     srcs = [
@@ -16,11 +26,12 @@ swift_library(
 )
 
 swift_library(
-    name = "Home",
-    module_name = "Home",
-    srcs = glob(["Impl/*.swift"]),
-    visibility = ["//visibility:public"],
+    name = "Sandbox",
+    module_name = "Sandbox",
+    srcs = ["HomeSandbox.swift"],
     deps = [
-        ":HomeBase",
+        ":Home",
+        "//ios-app/Source/Sandbox:SandboxInterface"
     ],
+    visibility = ["//visibility:public"],
 )

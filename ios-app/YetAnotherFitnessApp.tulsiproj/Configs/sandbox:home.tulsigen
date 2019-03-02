@@ -1,0 +1,67 @@
+{
+  "additionalFilePaths" : [
+    "ios-app/BUILD",
+    "ios-app/Source/BUILD",
+    "ios-app/Source/Modules/Home/BUILD",
+    "ios-app/Source/Sandbox/BUILD"
+  ],
+  "buildTargets" : [
+    "//ios-app/Source/Modules/Home:Home",
+    "//ios-app/Source/Modules/Home:HomeBase",
+    "//ios-app/Source/Modules/Home:Sandbox",
+    "//ios-app/Source/Sandbox:Sandbox",
+    "//ios-app/Source/Sandbox:SandboxApp",
+    "//ios-app/Source/Sandbox:SandboxInterface"
+  ],
+  "optionSet" : {
+    "BazelBuildOptionsDebug" : {
+      "p" : "$(inherited) --define=sandbox=home"
+    },
+    "BazelBuildOptionsRelease" : {
+      "p" : "$(inherited)"
+    },
+    "BazelBuildStartupOptionsDebug" : {
+      "p" : "$(inherited)"
+    },
+    "BazelBuildStartupOptionsRelease" : {
+      "p" : "$(inherited)"
+    },
+    "BuildActionPostActionScript" : {
+      "p" : "$(inherited)"
+    },
+    "BuildActionPreActionScript" : {
+      "p" : "$(inherited)"
+    },
+    "CommandlineArguments" : {
+      "p" : "$(inherited)"
+    },
+    "EnvironmentVariables" : {
+      "p" : "$(inherited)"
+    },
+    "LaunchActionPostActionScript" : {
+      "p" : "$(inherited)"
+    },
+    "LaunchActionPreActionScript" : {
+      "p" : "$(inherited)"
+    },
+    "TestActionPostActionScript" : {
+      "p" : "$(inherited)"
+    },
+    "TestActionPreActionScript" : {
+      "p" : "$(inherited)"
+    }
+  },
+  "projectName" : "YetAnotherFitnessApp",
+  "sourceFilters" : [
+    "ios-app/Resources",
+    "ios-app/Source/Modules",
+    "ios-app/Source/Modules/Home",
+    "ios-app/Source/Modules/Home/Impl",
+    "ios-app/Source/Sandbox",
+    "ios-app/third-party",
+    "ios-app/third-party/IGListKit",
+    "ios-app/third-party/IGListKit/Common",
+    "ios-app/third-party/IGListKit/Common/Internal",
+    "ios-app/third-party/IGListKit/Internal"
+  ]
+}

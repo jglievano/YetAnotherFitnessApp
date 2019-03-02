@@ -1,0 +1,36 @@
+load("@build_bazel_rules_apple//apple:ios.bzl", "ios_application")
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+
+BUNDLE_ID = "com.newpixeltheory.YetAnotherFitnessApp.sandbox"
+
+config_setting(
+    name = "home",
+    values = {"define": "sandbox=home"},
+)
+
+swift_library(
+    name = "SandboxInterface",
+    module_name = "SandboxInterface",
+    srcs = ["SandboxProviderProtocol.swift"],
+    visibility = ["//visibility:public"],
+)
+
+swift_library(
+    name = "Sandbox",
+    srcs = ["SandboxAppDelegate.swift"],
+    deps = [] + select({
+        ":home": ["//ios-app/Source/Modules/Home:Sandbox"],
+        "//conditions:default": [],
+    }),
+)
+
+ios_application(
+    name = "SandboxApp",
+    bundle_id = BUNDLE_ID,
+    families = ["iphone"],
+    minimum_os_version = "11.0",
+    infoplists = ["//ios-app/Resources:Info_plist"],
+    launch_storyboard = "//ios-app/Resources:LaunchScreen_storyboard",
+    visibility = ["//visibility:public"],
+    deps = [":Sandbox"],
+)
