@@ -1,11 +1,15 @@
 {
   "configDefaults" : {
     "optionSet" : {
-
+      "BazelBuildOptionsDebug" : {
+        "p" : "--strategy=SwiftCompile=standalone"
+      }
     }
   },
   "packages" : [
-    "ios-app"
+    "ios-app",
+    "ios-app/Source",
+    "ios-app/Source/Modules/Home"
   ],
   "projectName" : "YetAnotherFitnessApp",
   "workspaceRoot" : "../.."

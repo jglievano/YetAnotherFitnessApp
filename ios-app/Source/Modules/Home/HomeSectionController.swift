@@ -1,11 +1,14 @@
 import IGListKit
 
-final class HomeSectionController: ListSectionController {
+final class HomeSectionController: ListBindingSectionController<HomeSectionModel> {
   override init() {
     super.init()
-    // dataSource = self
+    
+    dataSource = self
   }
 }
+
+// MARK: - ListBindingSectionControllerDataSource
 
 extension HomeSectionController: ListBindingSectionControllerDataSource {
   func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>,
@@ -17,6 +20,7 @@ extension HomeSectionController: ListBindingSectionControllerDataSource {
   func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>,
                          cellForViewModel viewModel: Any,
                          at index: Int) -> UICollectionViewCell & ListBindable {
+    print("HomeSectionController:sectionController(_:viewModel:index)")
     guard let context = collectionContext else { fatalError("Unexpected nil collectionContext") }
     switch viewModel {
     case is HomeSectionModel:

@@ -4,6 +4,7 @@ final class HomeSectionModel {
   let title: String
 
   init(_ title: String = "Hello, World!") {
+    print("HomeSectionModel:init(\"\(title)\")")
     self.title = title
   }
 }
