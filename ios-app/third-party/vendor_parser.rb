@@ -62,7 +62,10 @@ Dir.glob("#{$dep_path}/**/*.{h,m,mm}") { |file|
 
   contents = File.read(file)
   new_contents = contents.gsub(/#import <IGListKit\/([a-zA-Z0-9\-_\.\+]+)>/, '#import "\1"')
-  depmap.each { |k, v| new_contents.gsub!(k, relative_path_from(k, path, v)) }
+  depmap.each { |k, v|
+    new_contents.gsub!("\"#{k}\"",
+                       "\"#{relative_path_from(k, path, v)}\"")
+  }
   File.open("#{$dst_path}/#{path}/#{filename}", "w") { |file|
     file.write(new_contents)
   }
