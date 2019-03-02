@@ -16,26 +16,6 @@ swift_library(
     ],
 )
 
-objc_library(
-    name = "IGListKit",
-    module_name = "IGListKit",
-    enable_modules = 0,
-    srcs = glob([
-        "IGListKit/Source/**/*.{m,mm}",
-    ]),
-    hdrs = glob([
-        "IGListKit/Source/**/*.h",
-        "IGListKit/Source/Common/Internal/*.h",
-        "IGListKit/Source/Internal/*.h",
-    ], exclude_directories = 1),
-    sdk_frameworks = ["UIKit"],
-    sdk_dylibs = ["c++"],
-    copts = [
-        "-DPOD_CONFIGURATION_RELEASE=0",
-    ],
-    visibility = ["//visibility:public"],
-)
-
 swift_library(
     name = "ObjectMapper",
     module_name = "ObjectMapper",
