@@ -1,5 +1,5 @@
 /**
- * Copyright (c) Facebook, Inc. and its affiliates.
+ * Copyright (c) 2016-present, Facebook, Inc.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,6 @@
 #import "IGListAdapterInternal.h"
 #import "../Common/IGListAssert.h"
 #import "../IGListSectionController.h"
-#import "IGSystemVersion.h"
 
 #import <objc/runtime.h>
 
@@ -24,7 +23,7 @@ static void * kIGListAdapterKey = &kIGListAdapterKey;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         // interactive reordering does not exist prior to iOS 9
-        if (!IGSystemVersionIsIOS9OrNewer()) {
+        if ([[[UIDevice currentDevice] systemVersion] floatValue] < 9.0) {
             return;
         }
 
@@ -93,8 +92,6 @@ static void * kIGListAdapterKey = &kIGListAdapterKey;
 
     IGListSectionController *sourceSectionController = [adapter sectionControllerForSection:sourceSectionIndex];
     IGListSectionController *destinationSectionController = [adapter sectionControllerForSection:destinationSectionIndex];
-
-    adapter.isLastInteractiveMoveToLastSectionIndex = NO;
 
     // this is a reordering of sections themselves
     if ([sourceSectionController numberOfItems] == 1

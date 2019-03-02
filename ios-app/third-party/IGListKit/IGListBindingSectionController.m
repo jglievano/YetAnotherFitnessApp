@@ -1,5 +1,5 @@
 /**
- * Copyright (c) Facebook, Inc. and its affiliates.
+ * Copyright (c) 2016-present, Facebook, Inc.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
@@ -112,15 +112,11 @@ typedef NS_ENUM(NSInteger, IGListDiffingSectionState) {
     self.object = object;
 
     if (oldObject == nil) {
-        NSArray *viewModels = [self.dataSource sectionController:self viewModelsForObject:object];
-        self.viewModels = objectsWithDuplicateIdentifiersRemoved(viewModels);
+        self.viewModels = [[self.dataSource sectionController:self viewModelsForObject:object] copy];
     } else {
-#if IGLK_LOGGING_ENABLED
-        if (![oldObject isEqualToDiffableObject:object]) {
-            IGLKLog(@"Warning: Unequal objects %@ and %@ will cause IGListBindingSectionController to reload the entire section",
-                    oldObject, object);
-        }
-#endif
+        IGAssert([oldObject isEqualToDiffableObject:object],
+                 @"Unequal objects %@ and %@ will cause IGListBindingSectionController to reload the entire section",
+                 oldObject, object);
         [self updateAnimated:YES completion:nil];
     }
 }
@@ -130,15 +126,24 @@ typedef NS_ENUM(NSInteger, IGListDiffingSectionState) {
 }
 
 - (void)didDeselectItemAtIndex:(NSInteger)index {
-    [self.selectionDelegate sectionController:self didDeselectItemAtIndex:index viewModel:self.viewModels[index]];
+    id<IGListBindingSectionControllerSelectionDelegate> selectionDelegate = self.selectionDelegate;
+    if ([selectionDelegate respondsToSelector:@selector(sectionController:didDeselectItemAtIndex:viewModel:)]) {
+        [selectionDelegate sectionController:self didDeselectItemAtIndex:index viewModel:self.viewModels[index]];
+    }
 }
 
 - (void)didHighlightItemAtIndex:(NSInteger)index {
-    [self.selectionDelegate sectionController:self didHighlightItemAtIndex:index viewModel:self.viewModels[index]];
+    id<IGListBindingSectionControllerSelectionDelegate> selectionDelegate = self.selectionDelegate;
+    if ([selectionDelegate respondsToSelector:@selector(sectionController:didHighlightItemAtIndex:viewModel:)]) {
+        [selectionDelegate sectionController:self didHighlightItemAtIndex:index viewModel:self.viewModels[index]];
+    }
 }
 
 - (void)didUnhighlightItemAtIndex:(NSInteger)index {
-    [self.selectionDelegate sectionController:self didUnhighlightItemAtIndex:index viewModel:self.viewModels[index]];
+    id<IGListBindingSectionControllerSelectionDelegate> selectionDelegate = self.selectionDelegate;
+    if ([selectionDelegate respondsToSelector:@selector(sectionController:didUnhighlightItemAtIndex:viewModel:)]) {
+        [selectionDelegate sectionController:self didUnhighlightItemAtIndex:index viewModel:self.viewModels[index]];
+    }
 }
 
 @end

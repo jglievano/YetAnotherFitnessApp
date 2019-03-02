@@ -1,5 +1,5 @@
 /**
- * Copyright (c) Facebook, Inc. and its affiliates.
+ * Copyright (c) 2016-present, Facebook, Inc.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
@@ -8,7 +8,6 @@
 #import <UIKit/UIKit.h>
 
 #import "IGListBatchContext.h"
-#import "IGListCollectionScrollingTraits.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -40,11 +39,6 @@ NS_SWIFT_NAME(ListCollectionContext)
  The size of the collection view with content insets applied.
  */
 @property (nonatomic, readonly) CGSize insetContainerSize;
-
-/**
- The current scrolling traits of the underlying collection view.
- */
-@property (nonatomic, readonly) IGListCollectionScrollingTraits scrollingTraits;
 
 /**
  Returns size of the collection view relative to the section controller.
