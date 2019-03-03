@@ -1,6 +1,11 @@
 import HomeBase
 
+// HomeBuilder builds a HomeViewController with final implementations.
+// Usage:
+//   HomeBuilder.build()
 public class HomeBuilder {
+
+  // Returns a new instance of HomeViewController.
   public static func build() -> HomeViewController {
     print("HomeBuilder:build()")
     let viewController = HomeViewController()
@@ -11,4 +16,5 @@ public class HomeBuilder {
     viewController.presenter = presenter
     return viewController
   }
+
 }

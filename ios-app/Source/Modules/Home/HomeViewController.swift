@@ -1,6 +1,10 @@
 import IGListKit
 import UIKit
 
+// HomeViewController is the first screen a user will see after signing in.
+// The type of content displayed here is:
+// - Profile summary.
+// - Recent logs.
 public class HomeViewController: UIViewController {
   public var presenter: HomePresenterProtocol!
 
