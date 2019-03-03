@@ -4,6 +4,6 @@ swift_test(
     name = "SimpleTest",
     srcs = [
         "SimpleTest.swift",
-        "main.swift",
     ],
+    sdk_frameworks = ["UIKit"],
 )
