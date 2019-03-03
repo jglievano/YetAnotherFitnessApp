@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+service LogBook {
+  rpc GetLog(User) returns (stream Log) {}
+  rpc RecordLog(User) returns (LogSummary) {}
+}
+
+message LogSummary {
+  bool success = 1;
+}
+
+message User {
+  repeated string emails = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string alias = 4;
+  Stats stats = 5;
+  repeated Log logs = 6;
+}
+
+message Stats {
+  int32 health = 1;
+  int32 agility = 2;
+  int32 constitution = 3;
+  int32 power = 4;
+  int32 intelligence = 5;
+  int32 wit = 6;
+  int32 communications = 7;
+  int32 resilience = 8;
+}
+
+message Log {
+  int32 created_at = 1;
+  Constitution constitution = 2;
+  Composition composition = 3;
+}
+
+message Constitution {
+  float weight = 1;
+  float body_fat = 2;
+}
+
+message Composition {
+  float waist = 1;
+  float bicep_right = 2;
+  float bicep_left = 3;
+  float forearm_right = 4;
+  float forearm_left = 5;
+  float quad_right = 6;
+  float quad_left = 7;
+  float calf_right = 8;
+  float calf_left = 9;
+  float chest = 10;
+}
