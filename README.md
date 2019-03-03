@@ -1,3 +1,5 @@
+[![Build Status](http://jglievano.ddns.net:8082/job/YetAnotherFitnessApp/badge/icon)](http://jglievano.ddns.net:8082/job/YetAnotherFitnessApp/)
+
 # Getting started
 
 - Download and install **[Java SE]**
