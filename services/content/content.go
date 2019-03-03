@@ -1,10 +1,9 @@
-package main
+package content
 
 import (
-	"github.com/golang/protobuf/proto"
-	
+	"fmt"
 )
 
-int main() {
-	
+func PrintContent() {
+	fmt.Println("This is content")
 }

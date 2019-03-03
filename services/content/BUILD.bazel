@@ -1,0 +1,13 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library", "go_test")
+
+go_binary(
+    name = "content",
+    srcs = ["main.go"],
+    deps = [":content_library"],
+)
+
+go_library(
+    name = "content_library",
+    srcs = ["content.go"],
+    importpath = "github.com/jglievano/yetanotherfitnessapp/content",
+)
