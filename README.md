@@ -39,7 +39,7 @@
           }
         }
 
-- `Source/Modules/<module name>/BUILD`:
+- `Source/Modules/<module name>/BUILD.bazel`:
 
         swift_library(
             name = "Sandbox",
@@ -52,14 +52,14 @@
             visibility = ["//visibility:public"],
         )
 
-- `Source/Sandbox/BUILD`:
+- `Source/Sandbox/BUILD.bazel`:
 
         config_setting(
             name = "<module name>",
             values = {"define": "sandbox=<module name>"},
         )
 
-- `Source/Sandbox/BUILD` in `Sandbox`'s `deps` attribute:
+- `Source/Sandbox/BUILD.bazel` in `Sandbox`'s `deps` attribute:
 
         ":<module name>": ["//ios-app/Source/Modules/<module name>:Sandbox"],
 
