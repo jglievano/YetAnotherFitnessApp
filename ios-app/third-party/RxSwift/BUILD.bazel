@@ -1,0 +1,34 @@
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+
+objc_library(
+    name = "RxAtomic",
+    module_name = "RxAtomic",
+    srcs = glob(["RxAtomic/**/*.c"]),
+    hdrs = glob(["RxAtomic/**/*.h"]),
+)
+
+swift_library(
+    name = "RxSwift",
+    module_name = "RxSwift",
+    srcs = glob([
+        "Platform/**/*.swift",
+        "RxSwift/**/*.swift",
+    ], exclude = ["RxSwift/Platform/**/*.swift"]),
+    deps = [":RxAtomic"],
+    visibility = ["//visibility:public"],
+)
+
+swift_library(
+    name = "RxCocoa",
+    module_name = "RxCocoa",
+    srcs = glob([
+        "RxCocoa/**/*.{swift,h,m}",
+        "platform/**/*.swift",
+    ], exclude = [
+        "RxCocoa/Platform/**/*.swift",
+        "Platform/AtomicInt.swift",
+    ]),
+    deps = [":RxSwift"],
+    visibility = ["//visibility:public"],
+)
+
