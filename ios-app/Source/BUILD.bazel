@@ -5,6 +5,6 @@ swift_library(
     srcs = glob(["*.swift"]),
     visibility = ["//visibility:public"],
     deps = [
-        "//ios-app/Source/Modules/Home",
+        "//ios-app/Source/Modules/Home/Impl:Home",
     ],
 )

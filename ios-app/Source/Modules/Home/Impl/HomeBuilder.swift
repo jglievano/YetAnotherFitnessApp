@@ -1,5 +1,9 @@
 import HomeBase
 
+import HomePresenter
+import HomeInteractor
+import HomeRouter
+
 // HomeBuilder builds a HomeViewController with final implementations.
 // Usage:
 //   HomeBuilder.build()
