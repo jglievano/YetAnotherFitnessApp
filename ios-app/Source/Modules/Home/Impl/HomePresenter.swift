@@ -1,10 +1,10 @@
 import HomeBase
 
-public struct HomePresenter: HomePresenterProtocol {
+final class HomePresenter: HomePresenterProtocol {
   var interactor: HomeInteractorProtocol!
   var router: HomeRouterProtocol!
 
-  public init(
+  init(
     interactor: HomeInteractorProtocol,
     router: HomeRouterProtocol
   ) {

@@ -1,5 +1,3 @@
 import HomeBase
 
-public struct HomeRouter: HomeRouterProtocol {
-  public init() {}
-}
+final class HomeRouter: HomeRouterProtocol {}
