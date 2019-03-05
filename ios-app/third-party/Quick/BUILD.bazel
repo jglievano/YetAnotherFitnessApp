@@ -4,18 +4,18 @@ swift_library(
     name = "Quick",
     module_name = "Quick",
     srcs = glob([
-        "Sources/**/*.swift"
+        "**/*.swift"
     ], exclude = [
-        "Sources/Quick/Configuration/QuickConfiguration.swift",
-        "Sources/Quick/QuickSpec.swift",
-        "Sources/Quick/QuickMain.swift",
+        "Quick/Configuration/QuickConfiguration.swift",
+        "Quick/QuickSpec.swift",
+        "Quick/QuickMain.swift",
     ]),
     deps = [":Quick_ObjectiveC"],
 )
 
 objc_library(
     name = "Quick_ObjectiveC",
-    srcs = glob(["Sources/**/*.{h,m}"]),
+    srcs = glob(["**/*.{h,m}"]),
     copts = ["-fmodule-name=Quick"],
     sdk_frameworks = ["XCTest"],
 )
