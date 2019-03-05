@@ -5,12 +5,9 @@ swift_library(
     module_name = "Quick",
     srcs = glob([
         "**/*.swift"
-    ], exclude = [
-        "Quick/Configuration/QuickConfiguration.swift",
-        "Quick/QuickSpec.swift",
-        "Quick/QuickMain.swift",
     ]),
     deps = [":Quick_ObjectiveC"],
+    visibility = ["//visibility:public"],
 )
 
 objc_library(

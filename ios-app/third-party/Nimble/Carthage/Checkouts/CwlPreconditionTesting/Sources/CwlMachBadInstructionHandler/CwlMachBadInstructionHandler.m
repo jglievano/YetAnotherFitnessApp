@@ -21,7 +21,7 @@
 #if defined(__x86_64__)
 
 	#import "mach_excServer.h"
-	#import "CwlMachBadInstructionHandler.h"
+	#import "include/CwlMachBadInstructionHandler.h"
 	
 	@protocol BadInstructionReply <NSObject>
 	+(NSNumber *)receiveReply:(NSValue *)value;

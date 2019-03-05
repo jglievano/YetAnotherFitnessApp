@@ -1,4 +1,8 @@
-load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+load(
+    "@build_bazel_rules_swift//swift:swift.bzl",
+    "swift_library",
+    "swift_test",
+)
 
 swift_library(
     name = "Home",
@@ -27,6 +31,16 @@ swift_library(
     ],
     deps = [
         "//ios-app/third-party/IGListKit",
+    ],
+)
+
+swift_test(
+    name = "Tests",
+    srcs = [
+        "Tests/HomeTests.swift",
+    ],
+    deps = [
+        ":Home",
     ],
 )
 

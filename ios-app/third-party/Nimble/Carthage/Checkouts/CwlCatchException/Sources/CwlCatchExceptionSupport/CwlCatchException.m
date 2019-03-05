@@ -18,7 +18,7 @@
 //  IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 //
 
-#import "CwlCatchException.h"
+#import "include/CwlCatchException.h"
 
 #if !SWIFT_PACKAGE && NON_SWIFT_PACKAGE
 __attribute__((visibility("hidden")))

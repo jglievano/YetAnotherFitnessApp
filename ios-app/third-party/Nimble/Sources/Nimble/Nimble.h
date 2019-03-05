@@ -1,12 +1,12 @@
 #import <Foundation/Foundation.h>
-#import "NMBExceptionCapture.h"
-#import "NMBStringify.h"
-#import "DSL.h"
+#import "../NimbleObjectiveC/NMBExceptionCapture.h"
+#import "../NimbleObjectiveC/NMBStringify.h"
+#import "../NimbleObjectiveC/DSL.h"
 
 #if TARGET_OS_TV
-    #import "CwlPreconditionTesting_POSIX.h"
+    #import "../../Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/Posix/CwlPreconditionTesting_POSIX.h"
 #else
-    #import "CwlPreconditionTesting.h"
+    #import "../../Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/Mach/CwlPreconditionTesting.h"
 #endif
 
 FOUNDATION_EXPORT double NimbleVersionNumber;
