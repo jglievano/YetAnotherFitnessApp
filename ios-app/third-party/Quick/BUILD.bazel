@@ -1,0 +1,21 @@
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+
+swift_library(
+    name = "Quick",
+    module_name = "Quick",
+    srcs = glob([
+        "Sources/**/*.swift"
+    ], exclude = [
+        "Sources/Quick/Configuration/QuickConfiguration.swift",
+        "Sources/Quick/QuickSpec.swift",
+        "Sources/Quick/QuickMain.swift",
+    ]),
+    deps = [":Quick_ObjectiveC"],
+)
+
+objc_library(
+    name = "Quick_ObjectiveC",
+    srcs = glob(["Sources/**/*.{h,m}"]),
+    copts = ["-fmodule-name=Quick"],
+    sdk_frameworks = ["XCTest"],
+)

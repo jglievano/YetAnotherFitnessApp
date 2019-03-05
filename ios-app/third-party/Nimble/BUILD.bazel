@@ -1,0 +1,32 @@
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+
+swift_library(
+    name = "Nimble",
+    module_name = "Nimble",
+    srcs = glob([
+        "Sources/**/*.swift",
+        "Carthage/Checkouts/CwlCatchException/Sources/**/*.swift",
+        "Carthage/Checkouts/CwlPreconditionTesting/Sources/**/*.swift",
+    ], exclude = [
+        "Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/CwlCatchBadInstructionPosix.swift",
+    ]),
+    deps = [":Nimble_ObjectiveC"],
+)
+
+objc_library(
+    name = "Nimble_ObjectiveC",
+    srcs = glob([
+        "Sources/**/*.{m,c}",
+        "Carthage/Checkouts/CwlCatchException/Sources/**/*.{m,c}",
+        "Carthage/Checkouts/CwlPreconditionTesting/Sources/**/*.{m,c}",
+    ]),
+    hdrs = glob([
+        "Sources/**/*.h",
+        "Carthage/Checkouts/CwlCatchException/Sources/**/*.h",
+        "Carthage/Checkouts/CwlPreconditionTesting/Sources/**/*.h",
+    ], exclude = [
+        "Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/Posix/CwlPreconditionTesting_POSIX.h",
+    ]),
+    copts = ["-fmodule-name=Nimble"],
+    sdk_frameworks = ["XCTest"],
+)
