@@ -1,6 +1,6 @@
 import HomeBase
 
-public struct HomePresenter: HomePresenterProtocol {
+struct HomePresenter: HomePresenterProtocol {
   var interactor: HomeInteractorProtocol!
   var router: HomeRouterProtocol!
 

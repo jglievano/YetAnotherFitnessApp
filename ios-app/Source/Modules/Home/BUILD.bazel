@@ -1,19 +1,33 @@
 load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
 
 swift_library(
+    name = "Home",
+    module_name = "Home",
+    srcs = [
+        "Impl/HomeBuilder.swift",
+        "Impl/HomeInteractor.swift",
+        "Impl/HomePresenter.swift",
+        "Impl/HomeRouter.swift",
+    ],
+    deps = [
+        ":HomeBase",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+swift_library(
     name = "HomeBase",
     module_name = "HomeBase",
     srcs = [
-        "HomeCollectionViewCell.swift",
         "HomeInterface.swift",
-        "HomeSectionController.swift",
-        "HomeSectionModel.swift",
-        "HomeViewController.swift",
+        "Models/HomeSectionModel.swift",
+        "Views/HomeCollectionViewCell.swift",
+        "Views/HomeSectionController.swift",
+        "Views/HomeViewController.swift",
     ],
     deps = [
         "//ios-app/third-party/IGListKit",
     ],
-    visibility = ["//visibility:public"],
 )
 
 swift_library(
@@ -21,7 +35,7 @@ swift_library(
     module_name = "Sandbox",
     srcs = ["HomeSandbox.swift"],
     deps = [
-        "//ios-app/Source/Modules/Home/Impl:Home",
+        ":Home",
         "//ios-app/Source/Sandbox:SandboxInterface"
     ],
     visibility = ["//visibility:public"],

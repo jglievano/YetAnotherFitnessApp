@@ -1,5 +1,5 @@
 import HomeBase
 
-public struct HomeInteractor: HomeInteractorProtocol {
+struct HomeInteractor: HomeInteractorProtocol {
   public init() {}
 }
