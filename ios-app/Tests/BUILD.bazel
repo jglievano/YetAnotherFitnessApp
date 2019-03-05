@@ -5,5 +5,4 @@ swift_test(
     srcs = [
         "SimpleTest.swift",
     ],
-    sdk_frameworks = ["UIKit"],
 )
