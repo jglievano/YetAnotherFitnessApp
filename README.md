@@ -1,3 +1,5 @@
+[![Build Status](https://in.newpixeltheory.com/buildStatus/icon?job=YetAnotherFitnessApp)](https://in.newpixeltheory.com/job/YetAnotherFitnessApp/)
+
 # Getting started
 
 - Download and install **[Java SE]**
