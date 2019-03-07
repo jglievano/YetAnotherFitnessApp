@@ -1,4 +1,4 @@
-[![Build Status](https://in.newpixeltheory.com/buildStatus/icon?job=YetAnotherFitnessApp)](https://in.newpixeltheory.com/job/YetAnotherFitnessApp/)
+[![Build Status](https://in.newpixeltheory.com/jenkins/buildStatus/icon?job=YetAnotherFitnessApp)](https://in.newpixeltheory.com/jenkins/job/YetAnotherFitnessApp/)
 
 # Getting started
 
