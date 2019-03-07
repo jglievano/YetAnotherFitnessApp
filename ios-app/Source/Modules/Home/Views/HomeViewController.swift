@@ -11,7 +11,7 @@ public class HomeViewController: UIViewController {
   private var collectionView: UICollectionView = {
     let view = UICollectionView(frame: .zero,
                                 collectionViewLayout: UICollectionViewFlowLayout())
-    view.backgroundColor = UIColor.clear
+    view.backgroundColor = .clear
     return view
   }()
 
@@ -28,8 +28,6 @@ public class HomeViewController: UIViewController {
     super.viewDidLoad()
     setup()
 
-    view.backgroundColor = UIColor.red
-    
     items = [
       HomeSectionModel("0 - zero"),
       HomeSectionModel("1 - one")
@@ -37,13 +35,13 @@ public class HomeViewController: UIViewController {
   }
 
   // MARK: - setup methods
-  
+
   private func setup() {
     print("HomeViewController:setup()")
     setupCollectionView()
     setupAdapter()
   }
-  
+
   private func setupAdapter() {
     adapter.collectionView = collectionView
     adapter.dataSource = self
