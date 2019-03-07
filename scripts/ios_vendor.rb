@@ -4,10 +4,10 @@ require 'pathname'
 def print_usage()
   puts
   puts "\e[1mNAME\e[0m"
-  puts "    \e[1mvendor_parser.rb\e[0m -- Parses though vendor dependency files"
+  puts "    \e[1mios_vendor.rb\e[0m -- Parses though vendor dependency files"
   puts
   puts "\e[1mSYNOPSIS\e[0m"
-  puts "    \e[1mruby vendor_parser.rb\e[0m \e[4msource_path\e[0m \e[4mdestination_path\e[0m"
+  puts "    \e[1mruby ios_vendor.rb\e[0m \e[4msource_path\e[0m \e[4mdestination_path\e[0m"
   puts
   puts "\e[1mDESCRIPTION\e[0m"
   puts "    This utility parses through each Objective-C source file (h, m, mm extensions)"
