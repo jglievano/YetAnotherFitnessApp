@@ -10,7 +10,7 @@ function usage() {
   printf "\n"
   printf "\e[1mDESCRIPTION\e[0m\n"
   printf "    This utility goes through files in this template project and makes\n"
-  printf "    substitutions where necessary\n"
+  printf "    substitutions where necessary.\n"
   printf "\n"
   printf "\e[1mEXIT STATUS\e[0m\n"
   printf "    0 on success, and >0 if an error occurs.\n"
