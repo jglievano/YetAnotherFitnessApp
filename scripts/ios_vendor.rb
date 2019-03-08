@@ -1,5 +1,8 @@
+#!/usr/bin/env ruby
+
 require 'fileutils'
 require 'pathname'
+require 'yaml'
 
 def print_usage()
   puts
@@ -7,7 +10,7 @@ def print_usage()
   puts "    \e[1mios_vendor.rb\e[0m -- Parses though vendor dependency files"
   puts
   puts "\e[1mSYNOPSIS\e[0m"
-  puts "    \e[1mruby ios_vendor.rb\e[0m \e[4msource_path\e[0m \e[4mdestination_path\e[0m"
+  puts "    \e[1mios_vendor.rb\e[0m \e[4msource_path\e[0m \e[4mdestination_path\e[0m"
   puts
   puts "\e[1mDESCRIPTION\e[0m"
   puts "    This utility parses through each Objective-C source file (h, m, mm extensions)"
@@ -18,8 +21,7 @@ def print_usage()
   puts "    0 on success, and >0 if an error occurs."
   puts
   puts "\e[1mCOMPATIBILITY\e[0m"
-  puts "    Built with \e[4mRuby v2.5\e[0m, usage using anything under my result in"
-  puts "    unexpected behavior."
+  puts "    Built and tested with \e[4mRuby v2.5\e[0m."
   puts
 end
 
