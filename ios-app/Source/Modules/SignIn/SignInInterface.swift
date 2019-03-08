@@ -18,4 +18,3 @@ protocol SignInInteractorToPresenterProtocol {
 protocol SignInViewToPresenterProtocol {
   func viewDidLoad()
 }
-
