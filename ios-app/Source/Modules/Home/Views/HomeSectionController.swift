@@ -3,7 +3,7 @@ import IGListKit
 final class HomeSectionController: ListBindingSectionController<HomeSectionModel> {
   override init() {
     super.init()
-    
+
     dataSource = self
   }
 }

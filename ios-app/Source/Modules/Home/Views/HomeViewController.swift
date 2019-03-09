@@ -65,7 +65,7 @@ extension HomeViewController: ListAdapterDataSource {
   public func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
     return items
   }
-  
+
   public func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any)
     -> ListSectionController {
       switch object {
@@ -75,7 +75,7 @@ extension HomeViewController: ListAdapterDataSource {
         fatalError("Unknown section in HomeViewController: \(object)")
       }
   }
-  
+
   public func emptyView(for listAdapter: ListAdapter) -> UIView? {
     return nil
   }

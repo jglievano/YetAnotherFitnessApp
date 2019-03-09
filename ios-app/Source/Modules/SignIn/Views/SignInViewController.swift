@@ -16,6 +16,7 @@ final class SignInViewController: UICollectionViewController {
     super.viewDidLoad()
     presenter.eventSubject
       .subscribe(onNext: { event in
+        print("Got \(event)")
       })
       .disposed(by: bag)
   }
