@@ -1,0 +1,48 @@
+load(
+  "//Vendor/rules_pods/BazelExtensions:extensions.bzl",
+  "pch_with_name_hint",
+  "acknowledged_target",
+  "gen_module_map",
+  "gen_includes"
+  )
+# Add a config setting release for compilation mode
+# Assume that people are using `opt` for release mode
+# see the bazel user manual for more information
+# https://bazel.build/versions/master/docs/bazel-user-manual.html
+native.config_setting(
+  name = "release",
+  values = {
+    "compilation_mode": "opt"
+  }
+  )
+load('@build_bazel_rules_swift//swift:swift.bzl', 'swift_library')
+swift_library(
+  name = "FolioReaderKit",
+  srcs = glob(
+    [
+      "Source/**/*.swift",
+      "Source/*.swift",
+      "Vendor/**/*.swift"
+    ],
+    exclude_directories = 1
+    ),
+  deps = [
+    "//Vendor/AEXML:AEXML",
+    "//Vendor/FontBlaster:FontBlaster",
+    "//Vendor/JSQWebViewController:JSQWebViewController",
+    "//Vendor/MenuItemKit:MenuItemKit",
+    "//Vendor/RealmSwift:RealmSwift",
+    "//Vendor/SSZipArchive:SSZipArchive",
+    "//Vendor/ZFDragableModalTransition:ZFDragableModalTransition"
+  ],
+  data = glob(
+    [
+      "Source/**/*.css",
+      "Source/**/*.js",
+      "Source/Resources/*.xcassets",
+      "Source/Resources/Fonts/**/*.otf",
+      "Source/Resources/Fonts/**/*.ttf"
+    ],
+    exclude_directories = 1
+    )
+  )

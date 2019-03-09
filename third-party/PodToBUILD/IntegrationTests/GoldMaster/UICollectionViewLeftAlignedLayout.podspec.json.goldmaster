@@ -1,0 +1,213 @@
+load(
+  "//Vendor/rules_pods/BazelExtensions:extensions.bzl",
+  "pch_with_name_hint",
+  "acknowledged_target",
+  "gen_module_map",
+  "gen_includes"
+  )
+# Add a config setting release for compilation mode
+# Assume that people are using `opt` for release mode
+# see the bazel user manual for more information
+# https://bazel.build/versions/master/docs/bazel-user-manual.html
+native.config_setting(
+  name = "release",
+  values = {
+    "compilation_mode": "opt"
+  }
+  )
+load('@build_bazel_rules_swift//swift:swift.bzl', 'swift_library')
+filegroup(
+  name = "UICollectionViewLeftAlignedLayout_cxx_hdrs",
+  srcs = glob(
+    [
+      "UICollectionViewLeftAlignedLayout/**/*.h",
+      "UICollectionViewLeftAlignedLayout/**/*.hpp",
+      "UICollectionViewLeftAlignedLayout/**/*.hxx"
+    ],
+    exclude_directories = 1
+    ),
+  visibility = [
+    "//visibility:public"
+  ]
+  )
+filegroup(
+  name = "UICollectionViewLeftAlignedLayout_cxx_union_hdrs",
+  srcs = [
+    "UICollectionViewLeftAlignedLayout_cxx_hdrs",
+    "UICollectionViewLeftAlignedLayout_hdrs"
+  ],
+  visibility = [
+    "//visibility:public"
+  ]
+  )
+gen_includes(
+  name = "UICollectionViewLeftAlignedLayout_cxx_includes",
+  include = [
+    "Vendor/UICollectionViewLeftAlignedLayout/pod_support/Headers/Public/"
+  ]
+  )
+objc_library(
+  name = "UICollectionViewLeftAlignedLayout_cxx",
+  enable_modules = 0,
+  srcs = glob(
+    [
+      "UICollectionViewLeftAlignedLayout/**/*.cc",
+      "UICollectionViewLeftAlignedLayout/**/*.cpp",
+      "UICollectionViewLeftAlignedLayout/**/*.cxx",
+      "UICollectionViewLeftAlignedLayout/**/*.mm"
+    ],
+    exclude = [
+      "UICollectionViewLeftAlignedLayout/**/*.S",
+      "UICollectionViewLeftAlignedLayout/**/*.c",
+      "UICollectionViewLeftAlignedLayout/**/*.m",
+      "UICollectionViewLeftAlignedLayout/**/*.s"
+    ],
+    exclude_directories = 1
+    ),
+  hdrs = [
+    ":UICollectionViewLeftAlignedLayout_cxx_union_hdrs"
+  ],
+  pch = pch_with_name_hint(
+    "UICollectionViewLeftAlignedLayout",
+    [
+      "UICollectionViewLeftAlignedLayout/**/*.pch"
+    ]
+    ),
+  deps = [
+
+  ] + [
+    ":UICollectionViewLeftAlignedLayout_cxx_includes"
+  ],
+  copts = [
+
+  ] + select(
+    {
+      "//conditions:default": [
+        "-DPOD_CONFIGURATION_RELEASE=0"
+      ],
+      ":release": [
+        "-DPOD_CONFIGURATION_RELEASE=1",
+        "-DNS_BLOCK_ASSERTIONS=1"
+      ]
+    }
+    ) + [
+    "-IVendor/UICollectionViewLeftAlignedLayout/pod_support/Headers/Public/UICollectionViewLeftAlignedLayout/"
+  ] + [
+    "-fmodule-name=UICollectionViewLeftAlignedLayout_pod_module"
+  ],
+  visibility = [
+    "//visibility:public"
+  ]
+  )
+acknowledged_target(
+  name = "UICollectionViewLeftAlignedLayout_cxx_acknowledgement",
+  deps = [
+
+  ],
+  value = "//Vendor/UICollectionViewLeftAlignedLayout/pod_support_buildable:acknowledgement_fragment"
+  )
+swift_library(
+  name = "UICollectionViewLeftAlignedLayout_swift",
+  srcs = glob(
+    [
+      "UICollectionViewLeftAlignedLayout/**/*.swift"
+    ],
+    exclude_directories = 1
+    ),
+  deps = [
+
+  ],
+  data = [
+
+  ]
+  )
+filegroup(
+  name = "UICollectionViewLeftAlignedLayout_hdrs",
+  srcs = glob(
+    [
+      "pod_support/Headers/Public/**/*"
+    ],
+    exclude_directories = 1
+    ) + glob(
+    [
+      "UICollectionViewLeftAlignedLayout/**/*.h",
+      "UICollectionViewLeftAlignedLayout/**/*.hpp",
+      "UICollectionViewLeftAlignedLayout/**/*.hxx"
+    ],
+    exclude_directories = 1
+    ) + [
+    ":UICollectionViewLeftAlignedLayout_cxx_hdrs"
+  ],
+  visibility = [
+    "//visibility:public"
+  ]
+  )
+gen_includes(
+  name = "UICollectionViewLeftAlignedLayout_includes",
+  include = [
+    "Vendor/UICollectionViewLeftAlignedLayout/pod_support/Headers/Public/"
+  ]
+  )
+gen_module_map(
+  "UICollectionViewLeftAlignedLayout",
+  "UICollectionViewLeftAlignedLayout_module_map",
+  "UICollectionViewLeftAlignedLayout",
+  [
+    "UICollectionViewLeftAlignedLayout_hdrs"
+  ]
+  )
+objc_library(
+  name = "UICollectionViewLeftAlignedLayout",
+  enable_modules = 0,
+  srcs = glob(
+    [
+      "UICollectionViewLeftAlignedLayout/**/*.S",
+      "UICollectionViewLeftAlignedLayout/**/*.c",
+      "UICollectionViewLeftAlignedLayout/**/*.m",
+      "UICollectionViewLeftAlignedLayout/**/*.s"
+    ],
+    exclude_directories = 1
+    ),
+  hdrs = [
+    ":UICollectionViewLeftAlignedLayout_hdrs"
+  ],
+  pch = pch_with_name_hint(
+    "UICollectionViewLeftAlignedLayout",
+    [
+      "UICollectionViewLeftAlignedLayout/**/*.pch"
+    ]
+    ),
+  deps = [
+    ":UICollectionViewLeftAlignedLayout_cxx",
+    ":UICollectionViewLeftAlignedLayout_swift"
+  ] + [
+    ":UICollectionViewLeftAlignedLayout_includes"
+  ],
+  copts = [
+
+  ] + select(
+    {
+      "//conditions:default": [
+        "-DPOD_CONFIGURATION_RELEASE=0"
+      ],
+      ":release": [
+        "-DPOD_CONFIGURATION_RELEASE=1",
+        "-DNS_BLOCK_ASSERTIONS=1"
+      ]
+    }
+    ) + [
+    "-IVendor/UICollectionViewLeftAlignedLayout/pod_support/Headers/Public/UICollectionViewLeftAlignedLayout/"
+  ] + [
+    "-fmodule-name=UICollectionViewLeftAlignedLayout_pod_module"
+  ],
+  visibility = [
+    "//visibility:public"
+  ]
+  )
+acknowledged_target(
+  name = "UICollectionViewLeftAlignedLayout_acknowledgement",
+  deps = [
+
+  ],
+  value = "//Vendor/UICollectionViewLeftAlignedLayout/pod_support_buildable:acknowledgement_fragment"
+  )
