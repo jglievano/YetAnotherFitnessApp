@@ -1,3 +1,4 @@
+build --apple_platform_type=ios
 --apple_enable_auto_dsym_dbg=true
 --apple_generate_dsym=true
 --strategy=SwiftCompile=standalone

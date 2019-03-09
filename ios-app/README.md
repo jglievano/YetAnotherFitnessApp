@@ -63,7 +63,7 @@
 
 ### On **macOS**
 
-    bazel test //ios-app/...
+    bazel test //ios-app/... --apple_platform_type=ios
 
 ## Running UI tests
 
