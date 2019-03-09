@@ -12,6 +12,7 @@ objc_library(
         "Common/Internal/*.h",
     ]),
     sdk_dylibs = ["c++"],
+    sdk_frameworks = ["UIKit"],
     copts = [
         "-std=c++11",
         "-stdlib=libc++",

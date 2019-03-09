@@ -63,7 +63,7 @@
 
 ### On **macOS**
 
-    bazel test //ios-app/Tests:all --cpu=darwin_x86_64 --apple_platform_type macos
+    bazel test //ios-app/...
 
 ## Running UI tests
 
