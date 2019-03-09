@@ -1,6 +1,11 @@
 [![Build Status](https://in.newpixeltheory.com/jenkins/buildStatus/icon?job=YetAnotherFitnessApp)](https://in.newpixeltheory.com/jenkins/job/YetAnotherFitnessApp/)
 
-# Getting started
+# TOC
+
+- [First time setup]
+- [iOS App]
+
+# First time setup
 
 - Download and install **[Java SE]**
 
@@ -13,9 +18,6 @@
 
         brew install bazel
 
-# TOC
-
-- [iOS documentation]
-
 [Java SE]: https://www.oracle.com/technetwork/java/javase/downloads/index.html
-[iOS documentation]: ios-app/README.md
+[First time setup]: #first-time-setup
+[iOS App]: ios-app/README.md
