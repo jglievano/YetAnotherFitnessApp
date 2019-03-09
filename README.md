@@ -13,7 +13,9 @@
 
         brew install bazel
 
-# [iOS documentation]
+# TOC
+
+- [iOS documentation]
 
 [Java SE]: https://www.oracle.com/technetwork/java/javase/downloads/index.html
 [iOS documentation]: ios-app/README.md
