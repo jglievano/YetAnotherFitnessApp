@@ -1,9 +1,7 @@
 [![Build Status](https://in.newpixeltheory.com/jenkins/buildStatus/icon?job=YetAnotherFitnessApp)](https://in.newpixeltheory.com/jenkins/job/YetAnotherFitnessApp/)
 
-# TOC
-
-- [First time setup]
-- [iOS App]
+* [First time setup]
+* [iOS App]
 
 # First time setup
 
