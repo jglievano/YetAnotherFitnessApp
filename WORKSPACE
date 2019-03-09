@@ -5,6 +5,8 @@ load(
     "http_file",
 )
 
+# Apple --
+
 git_repository(
     name = "build_bazel_rules_apple",
     remote = "https://github.com/bazelbuild/rules_apple.git",
@@ -29,7 +31,15 @@ load(
     "swift_rules_dependencies",
 )
 
+git_repository(
+    name = "build_bazel_rules_swift",
+    remote = "https://github.com/bazelbuild/rules_swift.git",
+    tag = "0.7.0",
+)
+
 swift_rules_dependencies()
+
+# Go --
 
 http_archive(
     name = "io_bazel_rules_go",
@@ -54,6 +64,14 @@ load("@bazel_gazelle//:deps.bzl",
     "go_repository")
 gazelle_dependencies()
 
+go_repository(
+    name = "com_github_golang_protobuf",
+    importpath = "github.com/golang/protobuf",
+    tag = "v1.0.0",
+)
+
+# Docker --
+
 http_archive(
     name = "io_bazel_rules_docker",
     sha256 = "aed1c249d4ec8f703edddf35cbe9dfaca0b5f5ea6e4cd9e83e99f3b0d1136c3d",
@@ -65,15 +83,10 @@ load(
     "@io_bazel_rules_docker//repositories:repositories.bzl",
     container_repositories = "repositories",
 )
+
 container_repositories()
 
 load(
     "@io_bazel_rules_docker//container:container.bzl",
     "container_pull",
-)
-
-go_repository(
-    name = "com_github_golang_protobuf",
-    importpath = "github.com/golang/protobuf",
-    tag = "v1.0.0",
 )
