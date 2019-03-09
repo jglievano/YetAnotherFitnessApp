@@ -5,26 +5,3 @@ swift_library(
     module_name = "Alamofire",
     srcs = glob(["Alamofire/Source/**/*.swift"]),
 )
-
-swift_library(
-    name = "AlamofireObjectMapper",
-    module_name = "AlamofireObjectMapper",
-    srcs = glob(["AlamofireObjectMapper/AlamofireObjectMapper/**/*.swift"]),
-    deps = [
-        ":Alamofire",
-        ":ObjectMapper",
-    ],
-)
-
-swift_library(
-    name = "ObjectMapper",
-    module_name = "ObjectMapper",
-    srcs = glob(["ObjectMapper/Sources/*.swift"])
-)
-
-swift_library(
-    name = "RealmSwift",
-    module_name = "RealmSwift",
-    srcs = glob(["realm-swift/RealmSwift/*.swift"]),
-)
-

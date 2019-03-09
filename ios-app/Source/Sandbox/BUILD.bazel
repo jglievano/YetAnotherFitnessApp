@@ -16,11 +16,18 @@ swift_library(
 )
 
 swift_library(
+    name = "SandboxPlaceholder",
+    module_name = "Sandbox",
+    srcs = ["Sandbox.swift"],
+    deps = ["//ios-app/Source/Sandbox:SandboxInterface"],
+)
+
+swift_library(
     name = "Sandbox",
     srcs = ["SandboxAppDelegate.swift"],
     deps = [] + select({
         ":home": ["//ios-app/Source/Modules/Home:Sandbox"],
-        "//conditions:default": [],
+        "//conditions:default": [":SandboxPlaceholder"],
     }),
 )
 
