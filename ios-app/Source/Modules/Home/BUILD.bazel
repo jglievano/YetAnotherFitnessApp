@@ -39,7 +39,10 @@ swift_library(
 swift_library(
     name = "HomeTests",
     srcs = ["Tests/HomeTests.swift"],
-    deps = ["Home"],
+    deps = [
+        "Home",
+        "//Vendor/Nimble",
+    ],
 )
 
 ios_unit_test(

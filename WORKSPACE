@@ -90,3 +90,10 @@ load(
     "@io_bazel_rules_docker//container:container.bzl",
     "container_pull",
 )
+
+local_repository(
+    name = "rules_pods",
+    path = "third-party/PodToBUILD",
+)
+
+load("@rules_pods//BazelExtensions:workspace.bzl", "new_pod_repository")
