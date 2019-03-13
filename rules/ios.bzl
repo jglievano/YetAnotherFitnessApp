@@ -51,7 +51,7 @@ _ios_pod_module_map = rule(
     outputs = { "module_map": "%{dir_name}/%(module_map_name}" }
 )
 
-def _ios_pod_module_map(pod_name,
+def ios_pod_module_map(pod_name,
                         dir_name,
                         module_name,
                         dep_hdrs=[],
@@ -60,13 +60,13 @@ def _ios_pod_module_map(pod_name,
     """
     Generate a module map based on a list of header file groups.
     """
-    _gen_module_map(name = pod_name + "_module_map_file",
-                    pod_name = pod_name,
-                    dir_name = dir_name,
-                    module_name = module_name,
-                    hdrs = dep_hdrs,
-                    module_map_name = module_map_name,
-                    visibility = visibility)
+    _ios_pod_module_map(name = pod_name + "_module_map_file",
+                        pod_name = pod_name,
+                        dir_name = dir_name,
+                        module_name = module_name,
+                        hdrs = dep_hdrs,
+                        module_map_name = module_map_name,
+                        visibility = visibility)
 
 _ios_pod_library = rule(
     implementation = _ios_pod_library_impl,
