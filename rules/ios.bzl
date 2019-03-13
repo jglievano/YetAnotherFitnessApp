@@ -9,7 +9,7 @@ def _make_module_map(pod_name,
 
     template = "module " + module_name + " {\n"
     template += "    export *\n"
-    for provider in hdr_provider.files:
+    for provider in hdr_providers:
         for input_file in provider.files:
             hdr = input_file
             template += "    header \"%s%s\"\n" % (relative_path, hdr.path)
@@ -39,7 +39,7 @@ def _ios_pod_module_map_impl(ctx):
     )
 
 _ios_pod_module_map = rule(
-    implementation = _gen_module_map_impl,
+    implementation = _ios_pod_module_map_impl,
     output_to_genfiles = True,
     attrs = {
         "pod_name": attr.string(mandatory = True),
@@ -48,15 +48,15 @@ _ios_pod_module_map = rule(
         "dir_name": attr.string(mandatory = True),
         "module_map_name": attr.string(mandatory = True),
     },
-    outputs = { "module_map": "%{dir_name}/%(module_map_name}" }
+    outputs = { "module_map": "%{dir_name}/%{module_map_name}" }
 )
 
 def ios_pod_module_map(pod_name,
-                        dir_name,
-                        module_name,
-                        dep_hdrs=[],
-                        module_map_name="module.modulemap",
-                        visibility=["//visibility:public"]):
+                       dir_name,
+                       module_name,
+                       dep_hdrs=[],
+                       module_map_name="module.modulemap",
+                       visibility=["//visibility:public"]):
     """
     Generate a module map based on a list of header file groups.
     """
@@ -68,6 +68,12 @@ def ios_pod_module_map(pod_name,
                         module_map_name = module_map_name,
                         visibility = visibility)
 
+def _ios_pod_library_impl(ctx):
+    """
+    No-op.
+    """
+    print("Hello, World")
+    
 _ios_pod_library = rule(
     implementation = _ios_pod_library_impl,
     attrs = {

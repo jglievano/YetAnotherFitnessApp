@@ -1,2 +1,67 @@
 load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
-load("//rules/ios.bzl", "ios_pod_module_map")
+load("//rules:ios.bzl", "ios_pod_module_map")
+
+swift_library(
+    name = "Nimble",
+    module_name = "Nimble",
+    srcs = glob([
+        "Carthage/Checkouts/CwlCatchException/Sources/**/*.swift",
+        "Carthage/Checkouts/CwlPreconditionTesting/Sources/**/*.swift",
+        "Sources/**/*.swift",
+    ], exclude = [
+        "Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/CwlCatchBadInstructionPosix.swift",
+        "Sources/Nimble/Adapters/NonObjectiveC/*.swift",
+    ], exclude_directories = 1),
+    deps = [":Nimble_objc"],
+    visibility = ["//visibility:public"],
+)
+
+filegroup(
+    name = "Nimble_hdrs",
+    srcs = glob([
+        "pod_support/Headers/Public/**/*",
+        "Carthage/Checkouts/CwlCatchException/Sources/**/*.h",
+        "Carthage/Checkouts/CwlPreconditionTesting/Sources/**/*.h",
+        "Sources/**/*.h",
+    ], exclude = [
+        "Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlPreconditionTesting/Posix/CwlPreconditionTesting_POSIX.h",
+    ], exclude_directories = 1),
+)
+
+ios_pod_module_map(
+    pod_name = "Nimble",
+    dir_name = "Nimble_module_map",
+    module_name = "Nimble",
+    dep_hdrs = [":Nimble_hdrs"],
+)
+
+objc_library(
+    name = "Nimble_objc",
+    hdrs = [
+        ":Nimble_hdrs",
+        ":Nimble_module_map_file",
+    ],
+    srcs = glob([
+        "Carthage/Checkouts/CwlCatchException/Sources/**/*.{m,c}",
+        "Carthage/Checkouts/CwlPreconditionTesting/Sources/**/*.{m,c}",
+        "Sources/**/*.{m,c}",
+    ]),
+    includes = [":Nimble_module_map"],
+    weak_sdk_frameworks = ["XCTest"],
+    copts = [
+        "-Xlinker",
+        "-no_application_extension",
+        "-weak-lswiftXCTest",
+        "-g",
+        "-stdlib=libc++",
+        "-DOBJC_OLD_DISPATCH_PROTOTYPES=0",
+        "-fdiagnostics-show-note-include-stack",
+        "-fno-common",
+        "-fembed-bitcode-marker",
+        "-fmessage-length=0",
+        "-fpascal-strings",
+        "-fstrict-aliasing",
+        "-Wno-error=nonportable-include-path",
+        "-fmodule-name=Nimble",
+    ],
+)
