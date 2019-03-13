@@ -1,0 +1,1 @@
+../../../../Sources/QuickObjectiveC/QuickSpec.h
