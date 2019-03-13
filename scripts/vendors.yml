@@ -1,6 +1,12 @@
 - url: https://github.com/Instagram/IGListKit.git
   location: ios-app/third-party/IGListKit
   tag: 3.4.0
-- name: https://github.com/ReactiveX/RxSwift
+- url: https://github.com/ReactiveX/RxSwift
   location: ios-app/third-party/RxSwift
   tag: 4.4.1
+- url: https://github.com/Quick/Nimble
+  location: ios-app/third-party/Nimble
+  tag: v8.0.1
+- url: https://github.com/Quick/Quick
+  location: ios-app/third-party/Quick
+  tag: v2.0.0

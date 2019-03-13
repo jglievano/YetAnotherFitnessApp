@@ -10,7 +10,7 @@ def print_usage()
   puts "    \e[1mios_vendor.rb\e[0m -- Parses though vendor dependency files"
   puts
   puts "\e[1mSYNOPSIS\e[0m"
-  puts "    \e[1mios_vendor.rb\e[0m \e[4msource_path\e[0m \e[4mdestination_path\e[0m"
+  puts "    \e[1mios_vendor.rb\e[0m \e[4mdep_name\e[0m"
   puts
   puts "\e[1mDESCRIPTION\e[0m"
   puts "    This utility parses through each Objective-C source file (h, m, mm extensions)"
@@ -25,14 +25,23 @@ def print_usage()
   puts
 end
 
-if ARGV.length != 2
-  puts "\e[31mTwo (2) arguments required.\e[0m"
+if ARGV.length != 1
+  puts "\e[31mOne (1) argument required.\e[0m"
   print_usage
   exit
 end
 
-$dep_path = ARGV[0]
-$dst_path = ARGV[1]
+$dep_name = ARGV[0]
+$dep_path = "/tmp/#{$dep_name}"
+
+vendors = YAML.load(File.read("#{File.dirname(__FILE__)}/vendors.yml"))
+vendor = vendors.detect { |v| v["url"].end_with? $dep_name }
+exit if vendor.nil?
+ok = system("git clone #{vendor["url"]} #{$dep_path}")
+exit if !ok
+ok = system("cd #{$dep_path}; git checkout #{vendor["tag"]}")
+exit if !ok
+$dst_path = vendor["location"]
 
 depmap = {}
 
@@ -58,7 +67,7 @@ Dir.glob("#{$dep_path}/**/*.{h,m,mm}") { |file|
 
 Dir.glob("#{$dep_path}/**/*.{h,m,mm}") { |file|
   filename, path = break_file(file)
-  puts "Processing #{filename} found in #{path}"
+  puts "\e[1mProcessing\e[0m #{filename} \e[32mfound in\e[0m #{path}"
 
   FileUtils.mkdir_p "#{$dst_path}/#{path}"
 
@@ -72,3 +81,20 @@ Dir.glob("#{$dep_path}/**/*.{h,m,mm}") { |file|
     file.write(new_contents)
   }
 }
+
+Dir.glob("#{$dep_path}/**/*.swift") { |file|
+  filename, path = break_file(file)
+  puts "\e[1mCopying\e[0m #{filename} \e[32mfound in\e[0m #{path}"
+
+  FileUtils.mkdir_p "#{$dst_path}/#{path}"
+
+  contents = File.read(file)
+  File.open("#{$dst_path}/#{path}/#{filename}", "w") { |file|
+    file.write(contents)
+  }
+}
+
+ok = system("rm -rf #{$dep_path}")
+if !ok
+  puts "Error deleting #{$dep_path}. Do it yourself."
+end
