@@ -1,0 +1,25 @@
+objc_framework(
+    name = "AppCenter",
+    framework_imports = glob(["AppCenter.framework/**"]),
+    sdk_dylibs = [
+        "z",
+        "sqlite3",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+objc_framework(
+    name = "AppCenterAnalytics",
+    framework_imports = glob(["AppCenterAnalytics.framework/**"]),
+    visibility = ["//visibility:public"],
+)
+
+objc_framework(
+    name = "AppCenterCrashes",
+    framework_imports = glob(["AppCenterCrashes.framework/**"]),
+    sdk_dylibs = [
+        "z",
+        "c++",
+    ],
+    visibility = ["//visibility:public"],
+)

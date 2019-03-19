@@ -10,6 +10,3 @@
 - url: https://github.com/Quick/Quick
   location: ios-app/third-party/Quick
   tag: v2.0.0
-- url: https://github.com/microsoft/AppCenter-SDK-Apple
-  location: ios-app/third-party/AppCenter
-  tag: 1.14.0

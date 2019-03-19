@@ -6,5 +6,8 @@ swift_library(
     visibility = ["//visibility:public"],
     deps = [
         "//ios-app/Source/Modules/Home",
+        "//ios-app/third-party/AppCenter",
+        "//ios-app/third-party/AppCenter:AppCenterAnalytics",
+        "//ios-app/third-party/AppCenter:AppCenterCrashes",
     ],
 )

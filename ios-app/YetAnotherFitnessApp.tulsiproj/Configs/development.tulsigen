@@ -7,6 +7,7 @@
   "buildTargets" : [
     "//ios-app/Source/Modules/Home:Home",
     "//ios-app/Source/Modules/Home:HomeBase",
+    "//ios-app/Source/Modules/Home:HomeTests",
     "//ios-app/Source:App",
     "//ios-app:ios-app"
   ],
@@ -55,7 +56,11 @@
     "ios-app/Source/Modules",
     "ios-app/Source/Modules/Home",
     "ios-app/Source/Modules/Home/Impl",
+    "ios-app/Source/Modules/Home/Models",
+    "ios-app/Source/Modules/Home/Tests",
+    "ios-app/Source/Modules/Home/Views",
     "ios-app/third-party",
+    "ios-app/third-party/AppCenter",
     "ios-app/third-party/IGListKit",
     "ios-app/third-party/IGListKit/Common",
     "ios-app/third-party/IGListKit/Common/Internal",

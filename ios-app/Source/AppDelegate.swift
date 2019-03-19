@@ -1,3 +1,6 @@
+import AppCenter
+import AppCenterAnalytics
+import AppCenterCrashes
 import UIKit
 
 import Home
@@ -7,6 +10,10 @@ class AppDelegate: UIResponder {
   var window: UIWindow?
 
   func afterLaunchSetup() {
+    MSAppCenter.start("3814c32e-f876-4361-b18f-f4e43e2c83c0", withServices: [
+        MSAnalytics.self,
+        MSCrashes.self
+    ])
     window = UIWindow(frame: UIScreen.main.bounds)
     window?.rootViewController = HomeBuilder.build()
     window?.makeKeyAndVisible()
