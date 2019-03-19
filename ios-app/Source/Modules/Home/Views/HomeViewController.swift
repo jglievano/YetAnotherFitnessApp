@@ -11,7 +11,7 @@ public class HomeViewController: UIViewController {
   private var collectionView: UICollectionView = {
     let view = UICollectionView(frame: .zero,
                                 collectionViewLayout: UICollectionViewFlowLayout())
-    view.backgroundColor = .clear
+    view.backgroundColor = .white
     return view
   }()
 
@@ -51,8 +51,8 @@ public class HomeViewController: UIViewController {
     view.addSubview(collectionView)
     collectionView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-      collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+      collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+      collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
       collectionView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
       collectionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
     ])
