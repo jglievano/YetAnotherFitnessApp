@@ -36,7 +36,8 @@ swift_library(
     name = "HomeTests",
     srcs = ["Tests/HomeTests.swift"],
     deps = [
-        "Home",
+        ":Home",
+        ":HomeBase",
     ],
 )
 

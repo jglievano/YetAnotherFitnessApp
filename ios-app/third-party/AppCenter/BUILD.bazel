@@ -1,4 +1,9 @@
-objc_framework(
+load(
+    "@build_bazel_rules_apple//apple:apple.bzl",
+    "apple_static_framework_import",
+)
+
+apple_static_framework_import(
     name = "AppCenter",
     framework_imports = glob(["AppCenter.framework/**"]),
     sdk_dylibs = [
@@ -8,13 +13,13 @@ objc_framework(
     visibility = ["//visibility:public"],
 )
 
-objc_framework(
+apple_static_framework_import(
     name = "AppCenterAnalytics",
     framework_imports = glob(["AppCenterAnalytics.framework/**"]),
     visibility = ["//visibility:public"],
 )
 
-objc_framework(
+apple_static_framework_import(
     name = "AppCenterCrashes",
     framework_imports = glob(["AppCenterCrashes.framework/**"]),
     sdk_dylibs = [
